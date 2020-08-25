@@ -6,6 +6,11 @@ class Summary extends Component {
         super(props);
         this.state = {  }
     }
+
+    static navigationOptions = {
+        title: 'Summary'
+    }
+
     render() { 
         return (  
             <View>

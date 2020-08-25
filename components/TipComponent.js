@@ -6,7 +6,12 @@ class Tip extends Component {
         super(props);
         this.state = {  }
     }
+    static navigationOptions = {
+        title: 'Tip'
+    }
     render() { 
+
+        
         return (  
             <View>
                 <Text>Tip Section</Text>

@@ -6,10 +6,13 @@ class Etiquette extends Component {
         super(props);
         this.state = {  }
     }
+    static navigationOptions = {
+        title: 'Etiquette'
+    }
     render() { 
         return ( 
             <View>
-            <Text>Summary Section</Text>
+            <Text>Etiquette Section</Text>
         </View>
 
          );

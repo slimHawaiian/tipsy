@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
-class Help extends Component {
+class Info extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
+    static navigationOptions = {
+        title: 'Settings'
+    }
     render() { 
         return (  
             <View>
-            <Text>Tip Section</Text>
+            <Text>Settings Section</Text>
         </View>
         );
     }
 }
  
-export default Help;
+export default Info;
