@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import {styles} from './util/style';
 
 class Summary extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Summary extends Component {
 
     render() { 
         return (  
-            <View>
+            <View style={styles.container}>
                 <Text>Summary Section</Text>
             </View>
         );

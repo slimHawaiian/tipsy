@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import {styles} from './util/style';
 
 class Info extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Info extends Component {
     }
     render() { 
         return (  
-            <View>
+            <View style={styles.container}>
             <Text>Settings Section</Text>
         </View>
         );

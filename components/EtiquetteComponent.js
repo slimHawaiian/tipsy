@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import {styles} from './util/style';
 
 class Etiquette extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Etiquette extends Component {
     }
     render() { 
         return ( 
-            <View>
+            <View style={styles.container}>
             <Text>Etiquette Section</Text>
         </View>
 

@@ -6,40 +6,25 @@ import Settings from './SettingsComponent';
 import Summary from './SummaryComponent';
 import Etiquette from './EtiquetteComponent';
 import { Icon } from 'react-native-elements';
+import {styles} from './util/style';
 import { createStackNavigator,createDrawerNavigator,DrawerItems } from 'react-navigation';
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    drawerHeader: {
-        backgroundColor: '#5637DD',
-        height: 140,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flex: 1,
-        flexDirection: 'row'
-    },
-    drawerHeaderText: {
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    drawerImage: {
-        margin: 10,
-        height: 60,
-        width: 60
-    },
-    stackIcon: {
-        marginLeft: 10,
-        color: '#fff',
-        fontSize: 24
-    }
-  });
+  const CustomDrawerContentComponent = props => (
+    <ScrollView>
+        <View 
+            style={styles.container}
+            forceInset={{top: 'always', horizontal: 'never'}}>
+            <View style={styles.drawerHeader}>
+                <View style={{flex: 1}}></View> 
+                <View style={{flex: 2}}>
+                    <Text style={styles.drawerHeaderText}>Tipsy</Text>
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </View>
+    </ScrollView>
+);
 
   const TipNavigator = createStackNavigator(
     {
@@ -48,7 +33,7 @@ const styles = StyleSheet.create({
     {
         navigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#427314'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -71,7 +56,7 @@ const SettingsNavigator = createStackNavigator(
     {
         navigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#427314'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -94,7 +79,7 @@ const EtiquetteNavigator = createStackNavigator(
     {
         navigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#427314'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -117,7 +102,7 @@ const SummaryNavigator = createStackNavigator(
     {
         navigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#427314'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -137,7 +122,7 @@ const MainNavigator = createDrawerNavigator(
     {
         Tip: { screen: TipNavigator,
             navigationOptions: {
-                drawerLabel: 'Tip',
+                drawerLabel: 'Calculate',
                 drawerIcon: ({tintColor}) => (
                     <Icon
                         name='money'
@@ -191,32 +176,12 @@ const MainNavigator = createDrawerNavigator(
     {
         initialRouteName:'Tip',
         contentOptions: {
-            activeTintColor: '#5637DD',
+            activeTintColor: '#427314',
+            activeBackgroundColor: '#fff',
         },
-        
-        //drawerBackgroundColor: '#CEC8FF',
-        //contentComponent: CustomDrawerContentComponent
+        contentComponent:CustomDrawerContentComponent
     }
 );
-
-const CustomDrawerContentComponent = props => (
-    <ScrollView>
-        <SafeAreaView 
-            style={styles.container}
-            forceInset={{top: 'always', horizontal: 'never'}}>
-            <View style={styles.drawerHeader}>
-                <View style={{flex: 1}}>
-                    <Image source={require('./images/logo.png')} style={styles.drawerImage} />
-                </View>
-                <View style={{flex: 2}}>
-                    <Text style={styles.drawerHeaderText}>NuCamp</Text>
-                </View>
-            </View>
-            <DrawerItems {...props} />
-        </SafeAreaView>
-    </ScrollView>
-);
-
 
 class Main extends Component {
     constructor(props) {
