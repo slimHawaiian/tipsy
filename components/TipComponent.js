@@ -37,7 +37,7 @@ class Tip extends Component {
                 this.setState({percentage:.20});
                 this.setState({index:3});
                 break;
-            }
+        }
     }
 
     calculateTip(){
