@@ -12,7 +12,8 @@ class Tip extends Component {
             percentage:.10,
             tip:0.0,
             bill:0.00,
-            total:0.00
+            total:0.00,
+            category:2
         }
     }
     static navigationOptions = {
@@ -52,13 +53,24 @@ class Tip extends Component {
 
     render() { 
         const buttonValues = ['10%', '12%', '15%','20%'];
-        const { index,total,tip,people} = this.state;
+        const { index,total,tip,people,category} = this.state;
 
         return ( 
             <ScrollView>
+                 <View style={styles.formRow}>
+                    <Picker 
+                        style={styles.formItem}
+                        selectedValue={category}
+                        onValueChange={itemValue => this.setState({category: itemValue})} >
+                        <Picker.Item label='Select Category' value='0' />
+                        <Picker.Item label='Bar' value='1' />
+                        <Picker.Item label='Hotel' value='2' />
+                        <Picker.Item label='Restaurant' value='3' />
+                    </Picker>
+                </View>
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Number of People</Text>
-                    <Picker style={styles.formItem}
+                    <Picker 
                         style={styles.formItem}
                         selectedValue={people}
                         onValueChange={itemValue => this.setState({people: itemValue})} >
@@ -78,7 +90,7 @@ class Tip extends Component {
                 </View>
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Tip</Text>
-                    <Text style={styles.formInput}>${tip}</Text>
+                    <Text style={styles.formInput}>${tip.toFixed(2)}</Text>
                 </View> 
                 <View>
                     <ButtonGroup
@@ -90,7 +102,7 @@ class Tip extends Component {
                     />
                 </View>
                 <View style={styles.tipRow}>
-                    <Text style={styles.tip}>${total}</Text>
+                    <Text style={styles.tip}>${total.toFixed(2)}</Text>
                 </View>
 
                 <View style={styles.tipRow}>

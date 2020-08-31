@@ -37,18 +37,18 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flex: 1,
         flexDirection: 'row',
-        margin: 10
+        margin: 8
     },
     formLabel: {
-        fontSize: 18,
-        flex: 2
+        fontSize: 15,
+        flex: 1
     },
     formItem: {
         flex: 1
     },
     formInput:{
         flex:1,
-        fontSize:18
+        fontSize:15
     },
     billInput:{
         flex:1,
@@ -74,6 +74,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#427314', 
         height:70,
         width:140
-    }
+    },
+    bgcolor:{backgroundColor:'#427314'}
     
 });
