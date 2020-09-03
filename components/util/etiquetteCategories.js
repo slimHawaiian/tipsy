@@ -17,17 +17,17 @@ export const categories = [
 ];
 
 export const rules = [
-    {category:"Bar",rule:"r1"},
-    {category:"Bar",rule:"r1"},
-    {category:"Bar",rule:"r1"},
-    {category:"Bar",rule:"r1"},
-    {category:"Restaurant",rule:"r1"},
-    {category:"Restaurant",rule:"r1"},
-    {category:"Restaurant",rule:"r1"},
-    {category:"Restaurant",rule:"r1"},
-    {category:"Hotel",rule:"r1"},
-    {category:"Hotel",rule:"r1"},
-    {category:"Hotel",rule:"r1"},
-    {category:"Hotel",rule:"r1"},
+    {id:1,category:"Bar",rule:"b1"},
+    {id:1,category:"Bar",rule:"b1"},
+    {id:1,category:"Bar",rule:"b1"},
+    {id:1,category:"Bar",rule:"b1"},
+    {id:2,category:"Restaurant",rule:"r1"},
+    {id:2,category:"Restaurant",rule:"r1"},
+    {id:2,category:"Restaurant",rule:"r1"},
+    {id:2,category:"Restaurant",rule:"r1"},
+    {id:3,category:"Hotel",rule:"h1"},
+    {id:3,category:"Hotel",rule:"h1"},
+    {id:3,category:"Hotel",rule:"h1"},
+    {id:3,category:"Hotel",rule:"h1"},
 
 ];

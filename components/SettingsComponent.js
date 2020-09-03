@@ -13,8 +13,8 @@ class Info extends Component {
     render() { 
         return (  
             <View style={styles.container}>
-            <Text>Settings Section</Text>
-        </View>
+                <Text>Settings Section</Text>
+            </View>
         );
     }
 }

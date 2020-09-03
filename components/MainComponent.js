@@ -7,6 +7,7 @@ import Summary from './SummaryComponent';
 import Etiquette from './EtiquetteComponent';
 import { Icon } from 'react-native-elements';
 import {styles} from './util/style';
+import Category from './CategoryComponent'
 import { createStackNavigator,createDrawerNavigator,DrawerItems } from 'react-navigation';
 
 
@@ -51,7 +52,7 @@ import { createStackNavigator,createDrawerNavigator,DrawerItems } from 'react-na
 
 const SettingsNavigator = createStackNavigator(
     {
-        Info: { screen: Settings }
+        Settings: { screen: Settings }
     },
     {
         navigationOptions: ({navigation}) => ({
@@ -74,24 +75,24 @@ const SettingsNavigator = createStackNavigator(
 
 const EtiquetteNavigator = createStackNavigator(
     {
-        Info: { screen: Etiquette }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#427314'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                color: '#fff'
-            },
-            headerLeft: <Icon
-                name='group'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
+        Etiquette: { screen: Etiquette,
+            navigationOptions: ({navigation}) => ({
+                headerStyle: {
+                    backgroundColor: '#427314'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
+                headerLeft: <Icon
+                    name='group'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+            Category:{screen:Category}
     }
 );
 

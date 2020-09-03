@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text,FlatList } from 'react-native';
+import {FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import {styles} from './util/style';
 import * as etiquette from './util/etiquetteCategories';
 
 class Etiquette extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
+   
     static navigationOptions = {
         title: 'Etiquette'
     }
     render() { 
+        const { navigate } = this.props.navigation;
         const renderDirectoryItem = ({item})=> {
             return (
                 <ListItem
@@ -20,7 +17,7 @@ class Etiquette extends Component {
                     bottomDivider={true}
                     leftIcon={item.icon}
                     rightIcon={{name:'chevron-right'}}
-                    //onPress={() => navigate('category', { id: item.id })}
+                    onPress={() => navigate('Category', { Id: item.id ,Title:`${item.category} Etiquette`})}
                 />
             );
         };
