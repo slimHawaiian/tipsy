@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text,Picker, ScrollView, TextInput} from 'react-native';
 import {styles} from './util/style';
 import {ButtonGroup,Button} from 'react-native-elements';
+import {addTip} from '../redux/ActionCreators';
+
+
+const mapStateToProps = state => {
+    return {
+        tips: state.tips,
+    };
+};
+
+const mapDispatchToProps = {
+    addTip: (tip) => (addTip(tip))
+};
 
 class Tip extends Component {
     constructor(props) {
@@ -16,6 +29,7 @@ class Tip extends Component {
             category:2
         }
     }
+
     static navigationOptions = {
         title: 'Calculate'
     }
@@ -42,13 +56,22 @@ class Tip extends Component {
     }
 
     calculateTip(){
-        const {bill,percentage,people} = this.state;
+        const {bill,percentage,people,category} = this.state;
 
         const tipAmount = (bill * percentage)/people;
         const totalAmount = (bill + tipAmount)/people;
-
         this.setState({tip:tipAmount});
         this.setState({total:totalAmount});
+        const tip = {
+            people,
+            percentage,
+            tip:tipAmount,
+            bill,
+            total:totalAmount,
+            category,
+            date:new Date().toString()};
+
+        this.props.addTip(tip);
     }
 
     render() { 
@@ -63,9 +86,9 @@ class Tip extends Component {
                         selectedValue={category}
                         onValueChange={itemValue => this.setState({category: itemValue})} >
                         <Picker.Item label='Select Category' value='0' />
-                        <Picker.Item label='Bar' value='1' />
-                        <Picker.Item label='Hotel' value='2' />
-                        <Picker.Item label='Restaurant' value='3' />
+                        <Picker.Item label='Bar' value='Bar' />
+                        <Picker.Item label='Hotel' value='Hotel' />
+                        <Picker.Item label='Restaurant' value='Restaurant' />
                     </Picker>
                 </View>
                 <View style={styles.formRow}>
@@ -117,4 +140,4 @@ class Tip extends Component {
     }
 }
  
-export default Tip;
+export default connect(mapStateToProps, mapDispatchToProps)(Tip);

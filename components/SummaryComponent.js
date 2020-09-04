@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import {styles} from './util/style';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        tips: state.tip.tips,
+    };
+};
 
 class Summary extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
 
     static navigationOptions = {
         title: 'Summary'
     }
 
+    showText(text,index){
+        return <Text key={index}>${text.toFixed(2)}</Text>
+    }
+
     render() { 
         return (  
             <View style={styles.container}>
-                <Text>Summary Section</Text>
+                {this.props.tips.map((x,i) => this.showText(x.total,i))}
             </View>
         );
     }
 }
  
-export default Summary;
+export default connect(mapStateToProps)(Summary);
