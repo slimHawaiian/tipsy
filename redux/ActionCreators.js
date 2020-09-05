@@ -5,7 +5,12 @@ export const addTip = tip => ({
     payload:tip
 });
 
-export const listTips = (tips) => ({
+export const listTips = tips => ({
     type: ActionTypes.LIST_TIPS,
     payload: tips
+});
+
+export const clearTips = () => ({
+    type: ActionTypes.CLEAR_TIPS,
+    payload: []
 });

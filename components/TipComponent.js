@@ -26,7 +26,8 @@ class Tip extends Component {
             tip:0.0,
             bill:0.00,
             total:0.00,
-            category:2
+            category:2,
+            date:''
         }
     }
 

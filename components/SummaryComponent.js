@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import {styles} from './util/style';
+import {FlatList } from 'react-native';
+import {ListItem} from 'react-native-elements';
 import { connect } from 'react-redux';
+import * as etiquette from './util/etiquetteCategories';
 
 const mapStateToProps = state => {
     return {
         tips: state.tip.tips,
     };
+};
+
+const findIcon = cat => {
+    const category = etiquette.categories.find(x => x.category === cat);
+    return category.icon;
+};
+
+const renderDirectoryItem = ({item})=> {
+    const localDate = new Date(item.date).toLocaleDateString("en-US");
+    return (
+        <ListItem
+            title={`${item.category} - ${localDate}`}
+            subtitle = {`Total: $${item.total.toFixed(2)}`}
+            bottomDivider={true}
+            leftIcon={findIcon(item.category)}
+            rightIcon={{name:'chevron-right'}}
+        />
+    );
 };
 
 class Summary extends Component {
@@ -15,15 +34,13 @@ class Summary extends Component {
         title: 'Summary'
     }
 
-    showText(text,index){
-        return <Text key={index}>${text.toFixed(2)}</Text>
-    }
-
     render() { 
         return (  
-            <View style={styles.container}>
-                {this.props.tips.map((x,i) => this.showText(x.total,i))}
-            </View>
+            <FlatList
+            data={this.props.tips}
+            renderItem={renderDirectoryItem}
+            keyExtractor={(item,index) => index.toString()}
+        />
         );
     }
 }

@@ -70,11 +70,23 @@ export const styles = StyleSheet.create({
         margin: 10
     },
     buttonStyle:{
-       
         backgroundColor: '#427314', 
-        height:70,
+        height:60,
         width:140
     },
-    bgcolor:{backgroundColor:'#427314'}
-    
+    bgcolor:{
+        backgroundColor:'#427314'
+    },
+    buttonClearHistoryStyle:{
+        margin: 10,
+        backgroundColor: '#427314',
+        height:60,
+        width:140
+    },
+   
+    textResult:{
+        fontSize: 15,
+        color:'#ff0000'
+    }
+
 });

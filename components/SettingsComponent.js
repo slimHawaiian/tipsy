@@ -1,22 +1,53 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { View, Alert, ScrollView} from 'react-native';
 import {styles} from './util/style';
+import {Button,Text} from 'react-native-elements';
+import {clearTips} from '../redux/ActionCreators';
 
-class Info extends Component {
+
+const mapDispatchToProps = {
+    clearTips: () => (clearTips())
+};
+
+class Settings extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {  
+            clearHistoryResult : ""
+        }
     }
+
     static navigationOptions = {
         title: 'Settings'
     }
+
+    clearHistory(){
+        Alert.alert('Clear History','You are about to clear your tip history! Continue?',
+            [ { text: "Yes", onPress: () => {
+                    this.props.clearTips();
+                    this.setState({clearHistoryResult:"history cleared!"});
+                }
+            },
+              {text: "No",onPress: () => this.setState({clearHistoryResult:""})}
+            ], 
+            { cancelable: true }
+        );
+    }
+
     render() { 
-        return (  
-            <View style={styles.container}>
-                <Text>Settings Section</Text>
-            </View>
+
+        return ( 
+                <View style={styles.container}>
+                    <Text style={styles.textResult}>{this.state.clearHistoryResult}</Text>
+                    <Button
+                        onPress={() => this.clearHistory()} 
+                        buttonStyle={styles.buttonClearHistoryStyle}
+                        title='clear tip history'>
+                    </Button>
+                </View>
         );
     }
 }
  
-export default Info;
+export default connect(null, mapDispatchToProps)(Settings);
