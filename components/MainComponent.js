@@ -7,7 +7,8 @@ import Summary from './SummaryComponent';
 import Etiquette from './EtiquetteComponent';
 import { Icon } from 'react-native-elements';
 import {styles} from './util/style';
-import Category from './CategoryComponent'
+import Category from './CategoryComponent';
+import TipDetails from './TipDetailsComponent';
 import { createStackNavigator,createDrawerNavigator,DrawerItems } from 'react-navigation';
 
 
@@ -98,24 +99,24 @@ const EtiquetteNavigator = createStackNavigator(
 
 const SummaryNavigator = createStackNavigator(
     {
-        Summary: { screen: Summary }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#427314'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                color: '#fff'
-            },
-            headerLeft: <Icon
-                name='list'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
+        Summary: { screen: Summary,
+            navigationOptions: ({navigation}) => ({
+                headerStyle: {
+                    backgroundColor: '#427314'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
+                headerLeft: <Icon
+                    name='list'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+            TipDetails:{screen:TipDetails}
     }
 );
 

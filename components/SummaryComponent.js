@@ -10,35 +10,37 @@ const mapStateToProps = state => {
     };
 };
 
-const findIcon = cat => {
-    const category = etiquette.categories.find(x => x.category === cat);
-    return category.icon;
-};
-
-const renderDirectoryItem = ({item})=> {
-    const localDate = new Date(item.date).toLocaleDateString("en-US");
-    return (
-        <ListItem
-            title={`${item.category} - ${localDate}`}
-            subtitle = {`Total: $${item.total.toFixed(2)}`}
-            bottomDivider={true}
-            leftIcon={findIcon(item.category)}
-            rightIcon={{name:'chevron-right'}}
-        />
-    );
-};
-
 class Summary extends Component {
 
     static navigationOptions = {
         title: 'Summary'
     }
 
+    findIcon = cat => {
+        const category = etiquette.categories.find(x => x.category === cat);
+        return category.icon;
+    };
+
+    renderDirectoryItem = ({item})=> {
+        const localDate = new Date(item.date).toLocaleDateString("en-US");
+        const { navigate } = this.props.navigation;
+        return (
+            <ListItem
+                title={`${item.category} - ${localDate}`}
+                subtitle = {`Tip: $${item.tip.toFixed(2)} (${item.percentage.toFixed(2) * 100}%) of $${item.total.toFixed(2)}`}
+                bottomDivider={true}
+                leftIcon={this.findIcon(item.category)}
+                rightIcon={{name:'chevron-right'}}
+                onPress={() => navigate('TipDetails', { id: item.id })}
+            />
+        );
+    };
+
     render() { 
         return (  
             <FlatList
             data={this.props.tips}
-            renderItem={renderDirectoryItem}
+            renderItem={this.renderDirectoryItem}
             keyExtractor={(item,index) => index.toString()}
         />
         );

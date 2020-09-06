@@ -8,6 +8,7 @@ class Etiquette extends Component {
     static navigationOptions = {
         title: 'Etiquette'
     }
+    
     render() { 
         const { navigate } = this.props.navigation;
         const renderDirectoryItem = ({item})=> {
@@ -21,6 +22,7 @@ class Etiquette extends Component {
                 />
             );
         };
+        
         return ( 
             <FlatList
                 data={etiquette.categories}

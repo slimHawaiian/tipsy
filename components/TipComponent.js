@@ -6,12 +6,6 @@ import {ButtonGroup,Button} from 'react-native-elements';
 import {addTip} from '../redux/ActionCreators';
 
 
-const mapStateToProps = state => {
-    return {
-        tips: state.tips,
-    };
-};
-
 const mapDispatchToProps = {
     addTip: (tip) => (addTip(tip))
 };
@@ -141,4 +135,4 @@ class Tip extends Component {
     }
 }
  
-export default connect(mapStateToProps, mapDispatchToProps)(Tip);
+export default connect(null, mapDispatchToProps)(Tip);
