@@ -18,7 +18,7 @@ class Etiquette extends Component {
                     bottomDivider={true}
                     leftIcon={item.icon}
                     rightIcon={{name:'chevron-right'}}
-                    onPress={() => navigate('Category', { Id: item.id ,Title:`${item.category} Etiquette`})}
+                    onPress={() => navigate('EtiquetteDetails', { Id: item.id ,Title:`${item.category} Etiquette`})}
                 />
             );
         };

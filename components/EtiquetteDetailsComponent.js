@@ -3,7 +3,7 @@ import {FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import * as etiquette from './util/etiquetteCategories';
 
-class Category extends Component {
+class EtiquetteDetails extends Component {
   
     static navigationOptions =({navigation}) =>  {
         return {
@@ -13,7 +13,7 @@ class Category extends Component {
             },
             headerTitleStyle: {
                 color:'#fff',
-              },
+            },
         }
     };
 
@@ -38,4 +38,4 @@ class Category extends Component {
     }
 }
  
-export default Category;
+export default EtiquetteDetails;

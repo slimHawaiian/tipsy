@@ -11,6 +11,16 @@ const mapStateToProps = state => {
 };
 
 class Summary extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {  
+            sortedTips : []
+        }
+    }
+
+    componentDidMount() {
+        this.setState({sortedTips :this.props.tips.sort(function(a, b){return b.id - a.id})})
+    }
 
     static navigationOptions = {
         title: 'Summary'
@@ -37,10 +47,10 @@ class Summary extends Component {
     };
 
     render() { 
-        const sortedTips = this.props.tips.sort(function(a, b){return b.id - a.id});
-        return (  
+        
+        return ( 
             <FlatList
-            data={sortedTips}
+            data={this.state.sortedTips}
             renderItem={this.renderDirectoryItem}
             keyExtractor={(item,index) => index.toString()}
         />

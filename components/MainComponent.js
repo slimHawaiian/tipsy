@@ -7,7 +7,7 @@ import Summary from './SummaryComponent';
 import Etiquette from './EtiquetteComponent';
 import { Icon } from 'react-native-elements';
 import {styles} from './util/style';
-import Category from './CategoryComponent';
+import EtiquetteDetails from './EtiquetteDetailsComponent';
 import TipDetails from './TipDetailsComponent';
 import { createStackNavigator,createDrawerNavigator,DrawerItems } from 'react-navigation';
 
@@ -93,7 +93,7 @@ const EtiquetteNavigator = createStackNavigator(
                 />
             })
         },
-            Category:{screen:Category}
+        EtiquetteDetails:{screen:EtiquetteDetails}
     }
 );
 
