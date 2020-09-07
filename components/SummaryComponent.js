@@ -37,9 +37,10 @@ class Summary extends Component {
     };
 
     render() { 
+        const sortedTips = this.props.tips.sort(function(a, b){return b.id - a.id});
         return (  
             <FlatList
-            data={this.props.tips}
+            data={sortedTips}
             renderItem={this.renderDirectoryItem}
             keyExtractor={(item,index) => index.toString()}
         />

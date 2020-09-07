@@ -135,12 +135,12 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         },
-        Etiquette: { screen: EtiquetteNavigator,
+        Summary: { screen: SummaryNavigator,
             navigationOptions: {
-                drawerLabel: 'Etiquette',
+                drawerLabel: 'Summary',
                 drawerIcon: ({tintColor}) => (
                     <Icon
-                        name='group'
+                        name='list'
                         type='font-awesome'
                         size={24}
                         color={tintColor}
@@ -148,12 +148,12 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         },
-        Summary: { screen: SummaryNavigator,
+        Etiquette: { screen: EtiquetteNavigator,
             navigationOptions: {
-                drawerLabel: 'Summary',
+                drawerLabel: 'Etiquette',
                 drawerIcon: ({tintColor}) => (
                     <Icon
-                        name='list'
+                        name='group'
                         type='font-awesome'
                         size={24}
                         color={tintColor}
